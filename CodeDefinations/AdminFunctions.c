@@ -1,11 +1,10 @@
 #include "../HeaderFiles/AdminFunctions.h"
 
-//a struct to handle user data
-
 
 int AddUser(char username[],char password[]){
 
   FILE *userFile;
+
   // open the file
   userFile = fopen("users.dat","a");
 
@@ -32,6 +31,31 @@ int AddUser(char username[],char password[]){
 
   // close file 
   fclose (userFile); 
+
+	return 1;
+}
+
+int AddProperty(propStrut *propertyDetails){
+  FILE *propFile;
+
+  // open the file
+  propFile = fopen("users.dat","a");
+
+  // check whether the file was opened or not
+  if(propFile == NULL){
+    fprintf(stderr,"\nError opening file\n");
+    return 0;
+  }
+
+  fwrite(propertyDetails,sizeof(propStrut),1,propFile);
+
+  if(fwrite == 0){
+			printf("error writing file !\n"); 
+			return 0;
+	}
+
+  // close file 
+  fclose (propFile); 
 
 	return 1;
 }
