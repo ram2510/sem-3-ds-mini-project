@@ -3,17 +3,15 @@
  *                                    include guards                                    *
  *                                                                                      */
 //=======================================================================================
-#ifndef _AUTH_H_
-#define _AUTH_H_
+#ifndef _ADMIN_H
+#define _ADMIN_H
 //########################################################################################
-
 //========================================================================================
 /*                                                                                      *
  *                            import essential header files                             *
  *                                                                                      */
 //========================================================================================
 #include<stdio.h>
-#include<stdlib.h>
 #include <string.h> 
 //########################################################################################
 
@@ -21,15 +19,13 @@
 /*                                                                                      *
  *                                 function declartions                                 *
  *                                                                                      */
-//========================================================================================
-
+//=======================================================================================
 /*
-*@description  This function will authenticate user based on input
-*@param username and password of the user to authenticate
-*@retuens 1 if the user is preset 0 if not
+*@description  This function will add new admins
+*@param username and password of the user to add
+*@retuens 1 if the user is added 0 if error occured
 */
-int compareAndAuthenticate(char username[],char pass[]);
+int AddUser(char username[],char password[]);
 //########################################################################################
-
 
 #endif
