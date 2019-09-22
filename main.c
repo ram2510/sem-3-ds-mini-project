@@ -14,14 +14,8 @@
 //========================================================================================
 #include "./HeaderFiles/AuthenticationScreen.h"
 #include "./HeaderFiles/AdminFunctions.h"
+#include "./Strutures/UserStruct.h"
 //########################################################################################
-
-//a struct to handle user data
-typedef struct   
-{ 
-    char username[20];
-    char password[20]; 
-}user; 
 
 int main(){
   char isAdminRespo,username[20],password[20];

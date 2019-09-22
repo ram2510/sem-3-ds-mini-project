@@ -1,11 +1,7 @@
 #include "../HeaderFiles/AdminFunctions.h"
 
 //a struct to handle user data
-typedef struct   
-{ 
-    char username[20];
-    char password[20]; 
-}user; 
+
 
 int AddUser(char username[],char password[]){
 

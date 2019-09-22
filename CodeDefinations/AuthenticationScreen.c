@@ -1,13 +1,5 @@
 #include "../HeaderFiles/AuthenticationScreen.h"
 
-// a struct to store and use user data
-typedef struct   
-{ 
-    char username[20];
-    char password[20]; 
-}user; 
-  
-
 int compareAndAuthenticate(char username[],char pass[]){
 
 	int isUserVerified=0;
