@@ -15,13 +15,24 @@
 //========================================================================================
 #include "./HeaderFiles/AuthenticationScreen.h"
 #include "./HeaderFiles/AdminFunctions.h"
+#include "./HeaderFiles/SetADT.h"
+//########################################################################################
+
+//========================================================================================
+/*                                                                                      *
+ *                                   import structures                                  *
+ *                                                                                      */
+//========================================================================================
 #include "./Strutures/UserStruct.h"
+#include "./Strutures/SetStruct.h"
 //########################################################################################
 
 int main(){
   char isAdminRespo,username[20],password[20];
   int isUserAdminVerfied,actionChoiceResp,isPropAdded,isUserAdded;
-
+  user userStruct;
+  propStrut propDetails;
+  
   while(1){
   // ask whether admin or not
 	printf("Are You a admin? y/n. \n=");
@@ -37,7 +48,6 @@ int main(){
 
   if(isAdminRespo=='y'){
 
-    user userStruct;
 
     // username prompt
     printf("Enter Username\n=");
@@ -82,7 +92,6 @@ int main(){
 
         // if the user want to add a property
         if(actionChoiceResp==1){
-          propStrut propDetails;
 
           printf("Enter name of property\n=");
           scanf("%s",propDetails.name);
@@ -107,7 +116,7 @@ int main(){
           if(isPropAdded)
             printf("property details Added!\n");
           else
-            printf("Failed to add property details");
+            printf("Failed to add property details\n");
         }
 
       }

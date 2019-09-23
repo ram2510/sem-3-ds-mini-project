@@ -1,5 +1,5 @@
 #include "../HeaderFiles/AdminFunctions.h"
-
+#include "../HeaderFiles/SetADT.h"
 
 int AddUser(char username[],char password[]){
 
@@ -36,10 +36,16 @@ int AddUser(char username[],char password[]){
 }
 
 int AddProperty(propStrut *propertyDetails){
+
+  int isElementAddedToSet = contains(propertyDetails);
+
+  if(isElementAddedToSet)
+    return 0;
+
   FILE *propFile;
 
   // open the file
-  propFile = fopen("users.dat","a");
+  propFile = fopen("property.dat","a");
 
   // check whether the file was opened or not
   if(propFile == NULL){
