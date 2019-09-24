@@ -33,11 +33,32 @@
 //========================================================================================
 
 /*
-*@description  This function will add area to the file if it does not exist
-*@param A pointer pointing towards the structure which consists of the prop details
-*@retuens 1 if the details is added 0 if not
+*@description  This function will check wheter a property esist or not
+*@param A pointer pointing towards the structure which consists of the area details
+*@returns 1 if the details is present 0 if not
 */
-int AddArea(propStrut *propDetails);
+int containsProperty(area *areaDetails);
+
+/*
+*@description  This function will check wheter a property esist or not
+*@param A pointer pointing towards the structure which consists of the area details
+*@returns 1 if the details is added 0 if not
+*/
+int AddArea(area *areaDetails);
+
+/*
+*@description  This function will display all the area
+*@param Array of the strings which contains all the strings for area names
+*@returns -
+*/
+char* displayAreaAndReturnName(char *areaArr[]);
+
+/*
+*@description  This function will delete the selcted property
+*@param string with the rea name
+*@returns 1 if the details is deleted 0 if not
+*/
+int incrementView(char *area);
 //########################################################################################
 
 

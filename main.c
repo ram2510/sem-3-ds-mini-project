@@ -16,6 +16,8 @@
 #include "./HeaderFiles/AuthenticationScreen.h"
 #include "./HeaderFiles/AdminFunctions.h"
 #include "./HeaderFiles/SetADT.h"
+#include "./HeaderFiles/AreaFunction.h"
+#include "./HeaderFiles/PropertyFunctions.h"
 //########################################################################################
 
 //========================================================================================
@@ -25,17 +27,29 @@
 //========================================================================================
 #include "./Strutures/UserStruct.h"
 #include "./Strutures/SetStruct.h"
+#include "./Strutures/AreaStructure.h"
 //########################################################################################
 
+// void clear(){
+//     #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+//         system("clear");
+//     #endif
+
+//     #if defined(_WIN32) || defined(_WIN64)
+//         system("cls");
+//     #endif
+// }
+
 int main(){
-  char isAdminRespo,username[20],password[20];
+  char isAdminRespo,username[20],password[20],*areaArr[100];
   int isUserAdminVerfied,actionChoiceResp,isPropAdded,isUserAdded;
   user userStruct;
   propStrut propDetails;
+  area areaDetails;
   
   while(1){
   // ask whether admin or not
-	printf("Are You a admin? y/n. \n=");
+	printf("Are You a admin? y/n.\n=");
 	scanf("%c",&isAdminRespo);
   
   isAdminRespo=tolower(isAdminRespo);
@@ -66,16 +80,28 @@ int main(){
 
       // infinit loop for admin actions
       while(1){
-        printf("1) Add property 2) Search for property 3) Add admin credentials 4) Exit\nEnter corresponding number to the action you would like to perform\n=");
+
+        // clear();
+
+        printf("1) Add property 2) Search for property 3) Add admin credentials 4) Add area 5) Exit\nEnter corresponding number to the action you would like to perform\n=");
         scanf("%d",&actionChoiceResp);
-        if(actionChoiceResp!=1 && actionChoiceResp!=2 && actionChoiceResp!=3 && actionChoiceResp!=4){
+        if(actionChoiceResp!=1 && actionChoiceResp!=2 && actionChoiceResp!=3 && actionChoiceResp!=4 && actionChoiceResp!=5){
           printf("Enter a valid choice\n");
           continue;
         }
 
         // for exit action
-        if(actionChoiceResp==4){
+        if(actionChoiceResp==5){
           break;
+        }
+
+        if(actionChoiceResp==4){
+          printf("Enter area name\n=");
+          scanf("%s",areaDetails.name);
+          areaDetails.noOfPropertiesAvailable = 0;
+          areaDetails.views = 0;
+          isPropAdded=AddArea(&areaDetails);
+          // printf("\n%d\n",isPropAdded);
         }
 
         // if the user wants to add another admin
@@ -88,6 +114,11 @@ int main(){
           isUserAdded = AddUser(username,password);
           if(isUserAdded==1)
             printf("Admin details added!\n");
+        }
+
+        if(actionChoiceResp==2){
+          char* test = displayAreaAndReturnName(areaArr);
+          printf("%s\n",test);
         }
 
         // if the user want to add a property
@@ -121,7 +152,7 @@ int main(){
 
       }
 
-      printf("Bye! %s",userStruct.username);
+      printf("Bye ! %s",userStruct.username);
 
     }else{
       printf("Invalid username or password\n");
