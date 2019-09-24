@@ -122,3 +122,41 @@ int incrementView(char *areaName){
   return 1;
 }
 
+int incrementProps(propStrut *propDetails){
+  area areaStruct,areaDetails;
+  FILE *areaFile,*tempFile;
+
+  areaFile = fopen("area.dat","r");
+  tempFile = fopen("temp.dat","a");
+  if(areaFile==NULL){
+    fprintf(stderr,"\nError opening in display properties file\n");
+    return 0;
+  }
+  while(fread(&areaStruct,sizeof(area),1,areaFile)){
+    // printf("\n %s\nNumber of views : %d Number of properties available : %d\n",areaStruct.name,areaStruct.views,areaStruct.noOfPropertiesAvailable);
+    strcpy(areaDetails.name,areaStruct.name);
+    areaDetails.views = areaStruct.views;
+
+    if(strcmp(areaStruct.name,propDetails->area)!=0){
+      
+    areaDetails.noOfPropertiesAvailable = areaStruct.noOfPropertiesAvailable;
+
+    }else{
+    areaDetails.noOfPropertiesAvailable = areaStruct.noOfPropertiesAvailable + 1;
+    }
+
+    fwrite(&areaDetails,sizeof(area),1,tempFile); 
+
+    if(fwrite==0){
+      printf("error writing temo file in deleteProperty !\n"); 
+      return 0;
+    }
+  }
+  fclose(areaFile);
+  fclose(tempFile);
+  remove("area.dat");
+  rename("temp.dat","area.dat");
+  return 1;
+}
+
+

@@ -23,6 +23,9 @@
 #include "../Strutures/UserStruct.h"
 #include "../Strutures/PropertyStrutures.h"
 #include "../Strutures/SetStruct.h"
+#include "../Strutures/AreaStructure.h"
+#include "../HeaderFiles/AreaFunction.h"
+#include "../HeaderFiles/SetADT.h"
 //########################################################################################
 
 //========================================================================================

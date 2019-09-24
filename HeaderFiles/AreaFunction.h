@@ -54,11 +54,18 @@ int AddArea(area *areaDetails);
 char* displayAreaAndReturnName(char *areaArr[]);
 
 /*
-*@description  This function will delete the selcted property
-*@param string with the rea name
-*@returns 1 if the details is deleted 0 if not
+*@description  This function will increment view counter for the selcted property
+*@param string with the real name of which you want to increment no of views
+*@returns 1 if view is incremented 0 if not
 */
 int incrementView(char *area);
+
+/*
+*@description  This function will increment no of properties
+*@param string with the real name of area of which you want to increment no of properties
+*@returns 1 if no of properties is incremented 0 if not
+*/
+int incrementProps(propStrut *propDetails);
 //########################################################################################
 
 
