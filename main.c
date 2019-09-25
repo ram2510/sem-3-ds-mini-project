@@ -30,16 +30,6 @@
 #include "./Strutures/AreaStructure.h"
 //########################################################################################
 
-// void clear(){
-//     #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-//         system("clear");
-//     #endif
-
-//     #if defined(_WIN32) || defined(_WIN64)
-//         system("cls");
-//     #endif
-// }
-
 int main(){
   char isAdminRespo,username[20],password[20],*areaArr[100];
   int isUserAdminVerfied,actionChoiceResp,isPropAdded,isUserAdded;
@@ -158,5 +148,21 @@ int main(){
     }else{
       printf("Invalid username or password\n");
     }
-  } 
+  }else{
+    char userChoice;
+    while(1){
+      printf("\nDo you want to browse the property details? (y/n)\n=");
+      scanf("%c",&userChoice);
+      if(userChoice!='y' && userChoice!='n'){
+        printf("Enter a valid choice");
+        continue;
+      }
+      if(userChoice=='y'){
+      char* areaName = displayAreaAndReturnName(areaArr);
+      displayPropertyAndDescription(areaName);
+      }else{
+        break;
+      }
+    }
+  }
 }

@@ -48,6 +48,14 @@ int AddProperty(propStrut* propertyDetails);
 *@returns -
 */
 void displayPropertyAndDescription(char *areaName);
+
+/*
+*@description  This function will delete properties
+*@param 1) A pointer pointing towards the struture which contains property details
+*       2) A pointer pointing towards the set structure which contains all the prop details
+*@returns 1 if the property is added 0 if error occured
+*/
+int deleteProperty(char *propertyName);
 //########################################################################################
 
 #endif
