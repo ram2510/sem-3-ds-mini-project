@@ -31,22 +31,22 @@
 //########################################################################################
 
 int main(){
-  char isAdminRespo,username[20],password[20],*areaArr[100];
+  char isAdminRespo,username[20],password[20],*areaArr[100],ch;
   int isUserAdminVerfied,actionChoiceResp,isPropAdded,isUserAdded;
   user userStruct;
   propStrut propDetails;
   area areaDetails;
-  
   while(1){
   // ask whether admin or not
 	printf("Are You a admin? y/n.\n=");
 	scanf("%c",&isAdminRespo);
-  
   isAdminRespo=tolower(isAdminRespo);
   if(isAdminRespo=='y' || isAdminRespo=='n')
     break;
-  else
+  else{
     printf("Please enter a Correct response\n\n");
+    while ((ch = getchar()) != '\n' && ch != EOF);  
+  }
   
   }
 
@@ -77,6 +77,7 @@ int main(){
         scanf("%d",&actionChoiceResp);
         if(actionChoiceResp!=1 && actionChoiceResp!=2 && actionChoiceResp!=3 && actionChoiceResp!=4 && actionChoiceResp!=5){
           printf("Enter a valid choice\n");
+          while ((ch = getchar()) != '\n' && ch != EOF);  
           continue;
         }
 
@@ -135,10 +136,10 @@ int main(){
 
           isPropAdded = AddProperty(&propDetails);
 
-          if(isPropAdded)
-            printf("property details Added!\n");
-          else
-            printf("Failed to add property details\n");
+          // if(isPropAdded)
+          //   printf("property details Added!\n");
+          // else
+          //   printf("Failed to add property details\n");
         }
 
       }
@@ -146,15 +147,18 @@ int main(){
       printf("Bye ! %s",userStruct.username);
 
     }else{
+
       printf("Invalid username or password\n");
     }
   }else{
     char userChoice;
     while(1){
+      while ((ch = getchar()) != '\n' && ch != EOF);  
       printf("\nDo you want to browse the property details? (y/n)\n=");
       scanf("%c",&userChoice);
       if(userChoice!='y' && userChoice!='n'){
         printf("Enter a valid choice");
+        // while ((ch = getchar()) != '\n' && ch != EOF);  
         continue;
       }
       if(userChoice=='y'){

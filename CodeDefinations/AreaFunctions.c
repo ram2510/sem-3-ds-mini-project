@@ -84,7 +84,7 @@ char* displayAreaAndReturnName(char *areaArr[]){
   // printf("\nc\n");
   isViewIncremented= incrementView(areaArr[userAreaChoice-1]);
   if(!isViewIncremented)
-    printf("\nError While ncrementingproperty view\n");
+    printf("\nError While incremneting view\n");
   // printf("\nd\n");
   return areaArr[userAreaChoice-1];
     

@@ -20,17 +20,23 @@ int AddProperty(propStrut *propertyDetails){
   }
 
   while(fread(&areaDetails,sizeof(area),1,areaFile)){
-    if(strcmp(areaDetails.name,propertyDetails->area))
+    if(!strcmp(areaDetails.name,propertyDetails->area))
       doesAreaExist=1;
   }
   // printf("\nb\n");
-  if(!doesAreaExist){
+  if(doesAreaExist){
     printf("Area Does not exist");
+    fclose (propFile); 
+    fclose(areaFile);
+
     return 0;
   }
   isNoOfPropsInc = incrementProps(propertyDetails);
-  printf("\naa%d\n",isNoOfPropsInc);
+  // printf("\naa%d\n",isNoOfPropsInc);
   if(!isNoOfPropsInc){
+    fclose (propFile); 
+    fclose(areaFile);
+
     return 0;
   
   }
@@ -39,9 +45,12 @@ int AddProperty(propStrut *propertyDetails){
 
   if(fwrite == 0){
 			printf("error writing file !\n"); 
+      fclose (propFile); 
+      fclose(areaFile);
+
 			return 0;
 	}
-    printf("\na\n");
+    // printf("\na\n");
 
   // close file 
   fclose (propFile); 
@@ -74,13 +83,19 @@ void displayPropertyAndDescription(char *areaName){
   }
   rewind(propFile);
 
+  if(!count){
+    printf("No property to show\n");
+    fclose(propFile);
+    return;
+  }
+
   printf("\nEnter choice of property you would wish to see\n=");
   scanf("%d",&userChoice);
   count=0;
   // printf("\nb\n");
   while (fread(&propDetails,sizeof(propStrut),1,propFile)){
-    // printf("\n%d %d\n",count,userChoice);
-    if(count==userChoice-1){
+    // printf("\n%d %s\n",count,propNameArr[userChoice-1]);
+    if(!strcmp(propDetails.name,propNameArr[userChoice-1])){
       printf("\nProperty name : %s",propDetails.name);
       printf("\nProperty area : %s",propDetails.area);
       printf("\nProperty details : %s",propDetails.details);
