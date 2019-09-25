@@ -52,10 +52,11 @@ int AddArea(area *areaDetails){
 }
 
 char* displayAreaAndReturnName(char *areaArr[]){
+  // printf("\na\n");
   area areaStruct;
   FILE *areaFile;
   int userAreaChoice;
-  int isAreaDeleted;
+  int isViewIncremented;
 
   areaFile = fopen("area.dat","r");
 
@@ -72,6 +73,7 @@ char* displayAreaAndReturnName(char *areaArr[]){
     }
   }
 
+  // printf("\nb\n");
   
 
   fclose(areaFile);
@@ -79,10 +81,13 @@ char* displayAreaAndReturnName(char *areaArr[]){
   printf("Enter number corresponding to the area in which you would like to add property\n=");
   scanf("%d",&userAreaChoice);
 
-
-  isAreaDeleted= incrementView(areaArr[userAreaChoice-1]);
-  printf("\n%d\n",isAreaDeleted);
+  // printf("\nc\n");
+  isViewIncremented= incrementView(areaArr[userAreaChoice-1]);
+  if(!isViewIncremented)
+    printf("\nError While ncrementingproperty view\n");
+  // printf("\nd\n");
   return areaArr[userAreaChoice-1];
+    
 }
 
 int incrementView(char *areaName){

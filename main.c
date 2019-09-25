@@ -117,8 +117,9 @@ int main(){
         }
 
         if(actionChoiceResp==2){
-          char* test = displayAreaAndReturnName(areaArr);
-          printf("%s\n",test);
+          char* areaName = displayAreaAndReturnName(areaArr);
+          // printf("\ne\n");
+          displayPropertyAndDescription(areaName);
         }
 
         // if the user want to add a property

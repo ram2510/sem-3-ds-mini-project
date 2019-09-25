@@ -36,16 +36,6 @@
 *@returns 1 if the property is present in set 0 if not
 */
 int contains(propStrut *propDetails);
-
-
-/*
-*@description  This function will display or the elements in a set
-*@param 1) A pointer to the set of which you would like to diplay elements
-*       2) A pointer to the struct which has the details of the property 
-*@returns 1 if the property is present in set 0 if not
-*/
-int display(SetADT *set);
-
 //########################################################################################
 
 #endif
