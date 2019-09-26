@@ -20,15 +20,17 @@ int AddProperty(propStrut *propertyDetails){
   }
 
   while(fread(&areaDetails,sizeof(area),1,areaFile)){
-    if(!strcmp(areaDetails.name,propertyDetails->area))
+    // printf("\n%s %s %d\n",areaDetails.name,propertyDetails->area,strcmp(areaDetails.name,propertyDetails->area));
+    if(!strcmp(areaDetails.name,propertyDetails->area)){
       doesAreaExist=1;
+      break;
+    }
   }
-  // printf("\nb\n");
-  if(doesAreaExist){
-    printf("Area Does not exist");
+  // printf("\n%d\n",doesAreaExist);
+  if(!doesAreaExist){
+    printf("Area Does not exist\n");
     fclose (propFile); 
     fclose(areaFile);
-
     return 0;
   }
   isNoOfPropsInc = incrementProps(propertyDetails);
@@ -55,12 +57,12 @@ int AddProperty(propStrut *propertyDetails){
   // close file 
   fclose (propFile); 
   fclose(areaFile);
-  printf("Area Added\n");
+  printf("property Added\n");
 	return 1;
 }
 
 void displayPropertyAndDescription(char *areaName){
-  printf("\n%s\n",areaName);
+  // printf("\n%s\n",areaName);
   propStrut propDetails;
   FILE *propFile;
   char *propNameArr[100];
@@ -108,3 +110,4 @@ void displayPropertyAndDescription(char *areaName){
   }
   fclose(propFile);
 }
+

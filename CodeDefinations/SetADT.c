@@ -14,6 +14,7 @@ int contains(propStrut *propDetails){
   int count=0;
   
   while(fread(setRead.arr,sizeof(propStrut),1,propFile)){
+    // printf("\n%s %s %s %s",propDetails->area,setRead.arr[0].area,propDetails->name,setRead.arr[0].name);
     if(!strcmp(propDetails->area,setRead.arr[0].area) && !strcmp(propDetails->name,setRead.arr[0].name)){
       printf("\nProperty already exists\n");
       return 1;

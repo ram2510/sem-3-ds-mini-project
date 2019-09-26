@@ -1,6 +1,7 @@
 {
   "C_Cpp.dimInactiveRegions": true,
   "files.associations": {
-    "adminfunctions.h": "c"
+    "adminfunctions.h": "c",
+    "typeinfo": "c"
   }
 }

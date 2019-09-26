@@ -127,6 +127,7 @@ int main(){
 
           printf("Enter phone number of property seller\n=");
           scanf("%s",propDetails.phoneNo);  
+          while ((ch = getchar()) != '\n' && ch != EOF);  
 
           printf("Enter the area of property\n=");
           scanf("%s",propDetails.area);    
